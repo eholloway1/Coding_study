@@ -1,4 +1,1 @@
-﻿  Main_4.cpp
-C:\Users\jumpi\OneDrive\Desktop\C++_Study\Exercise\Chap_4\Chap_4\Main_4.cpp(32,19): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\jumpi\OneDrive\Desktop\C++_Study\Exercise\Chap_4\Chap_4\Main_4.cpp(38,40): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Chap_4.vcxproj -> C:\Users\jumpi\OneDrive\Desktop\C++_Study\Exercise\Chap_4\x64\Debug\Chap_4.exe
+﻿

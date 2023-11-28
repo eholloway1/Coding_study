@@ -1,10 +1,9 @@
 #include "../../../Depends/std_lib_facilities.h"
 /*
-	Evan Holloway Nov 25 2023
+	Evan Holloway Nov 27 2023
 
-	Write a program that reads and stores a series of integers and then computes the sum of the first N integer
-	12 23 13 24 15 | “The sum of the first 3 numbers ( 12 23 13 ) is 48.”
-	Handle all inputs. For example, make sure to give an error message if the user asks for a sum of more numbers than there are in the vector.
+	Modify the program from exercise 8 to use double instead of int.
+	Also, make a vector of doubles containing the N–1 differences between adjacent values and write out that vector of differences.
 
 */
 
@@ -16,17 +15,23 @@ try {
 	int x = 0;
 	cin >> x;
 	cout << '\n';
+	int diff_vals = x - 1;
+	
+	if (x == 0) {
+		cout << "The sum of " << x << " vals is " << x;
+	}
 
 	cout << "Please enter your sequence of values, terminated with '|'\n"; //ask for the sequence of values
-	vector<int> vals;
+	vector<double> vals;
 	double num;
 	for (; cin >> num;)
-		vals.push_back(narrow_cast<int>(num));
+		vals.push_back(num);
 
 	if (vals.size() < x) //do we have >= the number of values we want added
 		throw(range_err());
 
 	int sum = 0;
+	int diff = vals[0];
 	cout << "The sum of the first " << x << "numbers ( ";
 
 	for (int i = 0; i < x; i++) {// print out what numbers we've added
@@ -34,6 +39,15 @@ try {
 		cout << vals[i] << " ";
 	}
 	cout << ") is " << sum << '\n';
+
+	cout << "The difference of the first " << x - 1 << " numbers ( " << vals[0] << " ";
+
+	for (int i = 1; i < x; i++) {
+		diff -= vals[i];
+		cout << vals[i] << " ";
+	}
+
+	cout << ") is " << diff << '\n';
 
 	keep_window_open();
 	return 0;

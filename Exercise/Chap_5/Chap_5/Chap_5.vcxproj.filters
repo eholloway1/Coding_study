@@ -48,5 +48,11 @@
     <ClCompile Include="Main_12.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Main_13.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main_14.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -8,9 +8,17 @@
 	Write out the number of rejected values.
 */
 
-//Reject bad days of week. Only accept days in proper order? not asked for.
+vector<int> Get_Day_Values(string);
+void Print_Day_values(vector<int>);
+
 int main()
 try {
+
+	cout << "Please enter the day-value pairs you would lke input:\n";
+	string pairs;
+	cin >> pairs;
+
+	vector<int> week_values = Get_Day_Values(pairs);
 
 	keep_window_open();
 	return 0;
@@ -19,4 +27,11 @@ catch (...) {
 	cerr << "Unkown error!\n";
 	keep_window_open();
 	return 1;
+}
+
+vector<int> Get_Day_Values(string in) {
+	string Day_of_week;
+	for (int i = 0; i < in.size(); i++) {
+
+	}
 }

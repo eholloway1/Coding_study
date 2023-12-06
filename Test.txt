@@ -1,0 +1,1 @@
+READ_ME test text for Git version control practice

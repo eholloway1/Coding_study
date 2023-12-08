@@ -32,6 +32,6 @@ catch (...) {
 vector<int> Get_Day_Values(string in) {
 	string Day_of_week;
 	for (int i = 0; i < in.size(); i++) {
-		//test
+		//testing
 	}
 }

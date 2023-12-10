@@ -8,17 +8,21 @@
 	Write out the number of rejected values.
 */
 
-vector<int> Get_Day_Values(string);
-void Print_Day_values(vector<int>);
+void Get_Day_Values(vector<int>, vector<int>, vector<int>, vector<int>, vector<int>, vector<int>, vector<int>);
+void Print_Day_values(vector<int>, vector<int>, vector<int>, vector<int>, vector<int>, vector<int>, vector<int>);
 
 int main()
 try {
-
-	cout << "Please enter the day-value pairs you would lke input:\n";
-	string pairs;
-	cin >> pairs;
-
-	vector<int> week_values = Get_Day_Values(pairs);
+	vector<int> Sunday_Vals;
+	vector<int> Monday_Vals;
+	vector<int> Tuesday_Vals;
+	vector<int> Wednesday_Vals;
+	vector<int> Thursday_Vals;
+	vector<int> Friday_Vals;
+	vector<int> Saturday_Vals;
+	
+	Get_Day_Values(Sunday_Vals, Monday_Vals, Tuesday_Vals, Wednesday_Vals, Thursday_Vals, Friday_Vals, Saturday_Vals);
+	Print_Day_values(Sunday_Vals, Monday_Vals, Tuesday_Vals, Wednesday_Vals, Thursday_Vals, Friday_Vals, Saturday_Vals);
 
 	keep_window_open();
 	return 0;
@@ -29,9 +33,92 @@ catch (...) {
 	return 1;
 }
 
-vector<int> Get_Day_Values(string in) {
-	string Day_of_week;
-	for (int i = 0; i < in.size(); i++) {
-		//testing
+void Get_Day_Values(vector<int> Sun_val, vector<int> Mon_val, vector<int> Tues_val, vector<int> Wed_val, vector<int> Thur_val, vector<int> Fri_val, vector<int> Sat_val) {
+	cout << "Please enter the days of the week and corresponding values you would like, seperated by 'Enter'.\n(Terminate input with the day '|'):\n";
+	string day = "";
+	int val = 0;
+
+	for (;;) {
+		cin >> day;
+		cin >> val;
+
+		if(day == "|")
+			break;
+
+		transform(day.begin(), day.end(), day.begin(), ::tolower);
+
+		if (day == "sunday" || day == "sun") {
+			Sun_val.push_back(val);
+		}
+		else if (day == "monday" || day == "mon") {
+			Mon_val.push_back(val);
+		}
+		else if (day == "tuesday" || day == "tues") {
+			Tues_val.push_back(val);
+		}
+		else if (day == "wednesday" || day == "wed") {
+			Wed_val.push_back(val);
+		}
+		else if (day == "thursday" || day == "thur") {
+			Thur_val.push_back(val);
+		}
+		else if (day == "friday" || day == "fri") {
+			Fri_val.push_back(val);
+		}
+		else if (day == "saturday" || day == "sat") {
+			Sat_val.push_back(val);
+		}
 	}
+}
+
+void Print_Day_values(vector<int> Sun_val, vector<int> Mon_val, vector<int> Tues_val, vector<int> Wed_val, vector<int> Thur_val, vector<int> Fri_val, vector<int> Sat_val) {
+	cout << "The value of the sundays is: \n";
+	
+	for (int i = 0; i < Sun_val.size(); i++) {
+		cout << i << ": " << Sun_val[i];
+	}
+	cout << '\n';
+
+	cout << "The value of the mondays is: \n";
+
+	for (int i = 0; i < Mon_val.size(); i++) {
+		cout << i << ": " << Mon_val[i];
+	}
+	cout << '\n';
+
+	cout << "The value of the tuesdays is: \n";
+
+	for (int i = 0; i < Tues_val.size(); i++) {
+		cout << i << ": " << Tues_val[i];
+	}
+	cout << '\n';
+
+	cout << "The value of the wednesdays is: \n";
+
+	for (int i = 0; i < Wed_val.size(); i++) {
+		cout << i << ": " << Wed_val[i];
+	}
+	cout << '\n';
+
+	cout << "The value of the thursdays is: \n";
+
+	for (int i = 0; i < Thur_val.size(); i++) {
+		cout << i << ": " << Thur_val[i];
+	}
+	cout << '\n';
+
+	cout << "The value of the fridays is: \n";
+
+	for (int i = 0; i < Fri_val.size(); i++) {
+		cout << i << ": " << Fri_val[i];
+	}
+	cout << '\n';
+
+	cout << "The value of the Saturdays is: \n";
+
+	for (int i = 0; i < Sat_val.size(); i++) {
+		cout << i << ": " << Sat_val[i];
+	}
+	cout << '\n';
+
 }

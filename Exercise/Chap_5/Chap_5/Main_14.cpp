@@ -1,6 +1,8 @@
 #include "../../../Depends/std_lib_facilities.h"
 /*
 	Evan Holloway Nov 30 2023
+	Evan Holloway Dec 10 2023
+	Evan Holloway Dec 11 2023
 
 	Read (day-of-the-week,value) pairs from standard input. For example: Tuesday 23 Friday 56 Tuesday –3 Thursday 99 
 	Collect all the values for each day of the week in a vector<int>. Write out the values of the seven day-of-the-week vectors. 
@@ -8,7 +10,7 @@
 	Write out the number of rejected values.
 */
 
-void Get_Day_Values(vector<int>, vector<int>, vector<int>, vector<int>, vector<int>, vector<int>, vector<int>);
+void Get_Day_Values(vector<int>&, vector<int>&, vector<int>&, vector<int>&, vector<int>&, vector<int>&, vector<int>&);
 void Print_Day_values(vector<int>, vector<int>, vector<int>, vector<int>, vector<int>, vector<int>, vector<int>);
 
 int main()
@@ -33,17 +35,18 @@ catch (...) {
 	return 1;
 }
 
-void Get_Day_Values(vector<int> Sun_val, vector<int> Mon_val, vector<int> Tues_val, vector<int> Wed_val, vector<int> Thur_val, vector<int> Fri_val, vector<int> Sat_val) {
+void Get_Day_Values(vector<int>& Sun_val, vector<int>& Mon_val, vector<int>& Tues_val, vector<int>& Wed_val, vector<int>& Thur_val, vector<int>& Fri_val, vector<int>& Sat_val) {
 	cout << "Please enter the days of the week and corresponding values you would like, seperated by 'Enter'.\n(Terminate input with the day '|'):\n";
 	string day = "";
 	int val = 0;
 
-	for (;;) {
+	while(true) {
 		cin >> day;
-		cin >> val;
 
 		if(day == "|")
-			break;
+			return;
+
+		cin >> val;
 
 		transform(day.begin(), day.end(), day.begin(), ::tolower);
 
@@ -68,7 +71,10 @@ void Get_Day_Values(vector<int> Sun_val, vector<int> Mon_val, vector<int> Tues_v
 		else if (day == "saturday" || day == "sat") {
 			Sat_val.push_back(val);
 		}
+		cout << "day " << day << '\n';
+		cout << "val " << val << '\n';
 	}
+	return;
 }
 
 void Print_Day_values(vector<int> Sun_val, vector<int> Mon_val, vector<int> Tues_val, vector<int> Wed_val, vector<int> Thur_val, vector<int> Fri_val, vector<int> Sat_val) {

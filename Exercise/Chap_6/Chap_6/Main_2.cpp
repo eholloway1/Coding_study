@@ -9,10 +9,10 @@
 
     Happy hunting!
 
-    Evan Holloway Dec 19 2023
+    Evan Holloway Dec 20 2023
+	Evan Holloway Dec 22 2023
 
-    Take the calculator from the file calculator02buggy.cpp. Get it to compile. You need to find and fix a few bugs.
-    Those bugs are not in the text in the book. Find the three logic errors deviously inserted in calculator02buggy.cpp and remove them so that the calculator produces correct results.
+	Add the ability to use {} as well as () in the program, so that {(4+5)*6} / (3+4) will be a valid expression.
 
 */
 
@@ -122,7 +122,8 @@ double primary()
     {
         double d = expression();
         t = ts.get();
-        if(t.kind != '}')
+        if(t.kind != '}') error("'}' expected");
+		return d;
     }
     case '8':            // we use '8' to represent a number
         return t.value;  // return the number's value
@@ -165,7 +166,7 @@ double term()
 // deal with + and -
 double expression()
 {
-    double left = term(;      // read and evaluate a Term
+    double left = term();      // read and evaluate a Term
     Token t = ts.get();        // get the next token from token stream
 
     while (true) {
@@ -196,13 +197,13 @@ try
 
     while (cin) {
         Token t = ts.get();
-        double val = 0.0;
+		double val = 0.0;
         if (t.kind == 'x') break; // 'x' for quit
         if (t.kind == '=')        // '=' for "print now"
             cout << "=" << val << '\n';
         else
             ts.putback(t);
-        val = expression();
+		val = expression();
     }
     keep_window_open();
 }
